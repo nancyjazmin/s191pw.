@@ -1,3 +1,7 @@
-<div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
+
+<div class="container mt-4" >
+
+<div class="alert alert-{{$tipo}}" role="alert">
+ Soy un alert {{$slot}}
+</div>
 </div>
