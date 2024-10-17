@@ -13,3 +13,8 @@ Route::view('/formulario','formulario')->name( 'rutallena');
 Route::view('/consultar','clientes')->name('rutacompras');
 
 Route::view('/component','componentes')->name('rutacomponent');
+
+Route::view('/component','componentes')->name('rutacomponent');
+
+Route::post('/enviarClientes',[ControladorVistas::class,'procesaCliente'])->name('rutapost');
+
