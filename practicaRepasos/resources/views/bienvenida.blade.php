@@ -23,7 +23,7 @@
 
         <p>Presiona el botón para iniciar....</p>
 
-    <a href="/convertidor" class="btn btn-primary"> Ir al Conventidor </a>
+     <a href="/conversiones" class="btn btn-primary"> Repaso 1 </a>
      
 
 </div>
