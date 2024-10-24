@@ -6,7 +6,7 @@
 <body>
   <h1>Convertidor de Unidades</h1>
   <form action="convertir" method="POST">
-    @csrf
+   @csrf
     <label>Valor:</label>
     <input type="number" name="valor" required>
     <br>

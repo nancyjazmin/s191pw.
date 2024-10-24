@@ -1,20 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\controladorVistas;
 
-Route::get('/', function () {
-    return view('inicio');
+
+Route::get('/', [controladorVistas::class, 'home'])->name('rutaprincipal');
+Route::get('/formulario', [controladorVistas::class, 'insert'])->name('rutacacas');
+Route::get('/consultas', [controladorVistas::class, 'select'])->name('rutaconsulta');
+Route::post('/enviarCliente', [controladorVistas::class, 'procesarCliente'])->name('rutaenviar');
+
+
+
+/*Route::get('/', function () {
+    return view('welcome');
 });
+*/
 
-Route:: view('/','inicio')->name('rutaprincipal');
+/*el primer parametro es la vista y el segundo es la ruta.
+Funciona tanto la sintaxis de arriba como la de abajo*/
 
-Route::view('/formulario','formulario')->name( 'rutallena');
+/* Route::view('/','inicio') ->name('rutainicio');
 
-Route::view('/consultar','clientes')->name('rutacompras');
+Route::view('/formulario','formulario')->name('rutacacas');
 
-Route::view('/component','componentes')->name('rutacomponent');
+Route::view('/consultas','clientes')->name('rutaconsulta'); */
 
-Route::view('/component','componentes')->name('rutacomponent');
+Route::view('/component', 'componentes');
 
-Route::post('/enviarClientes',[ControladorVistas::class,'procesaCliente'])->name('rutapost');
-
+Route::view('/component2', 'componentes2');

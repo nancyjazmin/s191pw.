@@ -8,6 +8,6 @@ Route::get('/', function () {
 });
 
 Route::view('/','bienvenida')->name('rutabienvenida');
-
+Route::view('/conversiones','conversiones');
 Route::post('/convertir',[controladorConvertidor::class,'convertir'])->name('rutaconversiones');
 
