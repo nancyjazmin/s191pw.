@@ -21,11 +21,13 @@ class controladorVistas extends Controller
     }
     public function procesarCliente(Request $peticion)
     {
-        //return redirect()->route('rutacompras');
-        //$id=[['usuario'=>'1'],['usuario'=>'2']];
-        //return view('formulario',compact('id'));
+        $validacion= $peticion->validate([
+            'txtnombre'=> 'required|min:3|max:20',
+            'txtapellido'=> 'required',
+            'txtcorreo'=> 'required|email',
+            'txttelefono'=> 'required|numeric',
+        ]);
 
-        //redireccion enviando msj en session
         $usuario= $peticion->input('txtnombre');
         session()->flash('exito','Se guardo el usuario : '.$usuario);
 
