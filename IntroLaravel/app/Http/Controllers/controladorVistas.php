@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadorCliente;
 
 class controladorVistas extends Controller
 {
@@ -19,15 +20,9 @@ class controladorVistas extends Controller
     {
         return view('clientes');
     }
-    public function procesarCliente(Request $peticion)
+    public function procesarCliente(validadorCliente $peticion)
     {
-        $validacion= $peticion->validate([
-            'txtnombre'=> 'required|min:3|max:20',
-            'txtapellido'=> 'required',
-            'txtcorreo'=> 'required|email',
-            'txttelefono'=> 'required|numeric',
-        ]);
-
+        //redirección enviando mensajes en session
         $usuario= $peticion->input('txtnombre');
         session()->flash('exito','Se guardo el usuario : '.$usuario);
 
