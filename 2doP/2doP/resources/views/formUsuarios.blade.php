@@ -13,21 +13,38 @@
 
     <div class="container  col-md-4">
 
+    @if(session('exito'))
+        <x-Alert tipo="success"> {{ session('exito') }} </x-Alert>
+        @endif
+
+        @session ('exito')
+        <x-Alert tipo="warning"> {{$value}} </x-Alert>
+        @endsession
+
+        @session('exito')
+            <script>
+               Swal.fire({
+                title: "Respuesta del servidor",
+                text: '{{ $value }}',
+                icon: "success"});
+            </script>
+        @endsession
+
     <form>
 
         <div class="mb-3">
-            <label  class="form-label">Correo: </label>
-            <input type="text" class="form-control" >
+            <label for="correo" class="form-label">Correo: </label>
+            <input type="text" class="form-control" name="txtcorreo" >
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Contraseña: </label>
-            <input type="text" class="form-control" >
+            <label for="contraseña" class="form-label">Contraseña: </label>
+            <input type="text" class="form-control" name="txtcontraseña" >
         </div>                
 
         <div class="mb-3">
-            <label  class="form-label">Edad: </label>
-            <input type="text" class="form-control"  >
+            <label for="edad" class="form-label">Edad: </label>
+            <input type="text" class="form-control" name="txtedad" >
         </div>
 
 
