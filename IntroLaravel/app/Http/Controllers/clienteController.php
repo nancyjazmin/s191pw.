@@ -9,12 +9,15 @@ use App\Http\Requests\validadorCliente;
 
 class clienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function home()
+    {
+        return view('inicio');
+    }
+    /*funciona para consultar*/
     public function index()
     {
-        //
+        $consultaClientes= DB::table('cliente')->get();
+        return view('clientes', compact('consultaClientes'));
     }
 
     /**
@@ -33,7 +36,7 @@ class clienteController extends Controller
         DB::table('cliente')->insert([
             "nombre"=>$request->input('txtnombre'),
             "apellido"=>$request->input('txtapellido'),
-            "correo"=>$request->input('txtnombre'),
+            "correo"=>$request->input('txtcorreo'),
             "telefono"=>$request->input('txttelefono'),
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),

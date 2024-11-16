@@ -24,7 +24,7 @@ class validadorCliente extends FormRequest
         return [
             'txtnombre'=> 'required|min:3|max:20',
             'txtapellido'=> 'required',
-            'txtcorreo'=> 'required|email:rfc,dns',
+            'txtcorreo'=> 'required|email',
             'txttelefono'=> 'required|numeric',
         ];
     }

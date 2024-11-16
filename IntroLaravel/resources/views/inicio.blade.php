@@ -19,8 +19,9 @@
         <h1 class="display-1"> {{__('Bienvenido Turista!')}} </h1>
         <p>{{__('Presiona el botón para iniciar...')}}</p>
 
-        <a href="/formulario" class="btn btn-primary">{{__('Ir al Registro')}} </a>
-
+        <a href="{{route('rutacacas')}}" class="btn btn-primary">{{__('Ir al Registro')}} </a>
+        <a href="{{route('rutaconsulta')}}" class="btn btn-danger">{{__('Consultar Clientes')}} </a>
+        {{--<a href="/formulario" class="btn btn-danger">{{__('Consultar Clientes')}}</a>--}}
 
     </div>
 
