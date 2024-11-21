@@ -11,6 +11,7 @@ Route::post('/cliente', [clienteController::class, 'store'])->name('rutaenvia');
 
 
 Route::get('/cliente', [clienteController::class, 'index'])->name('rutaconsulta');
+Route::get('/edit', [clienteController::class, 'edit'])->name('rutaedit');
 /*Route::get('/', function () {
     return view('welcome');
 });

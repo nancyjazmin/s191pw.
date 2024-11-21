@@ -63,7 +63,9 @@ class clienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $consultaClientes= DB::table('cliente')->patch();
+        return view('clientes', compact('consultaClientes'));
+    
     }
 
     /**

@@ -24,9 +24,10 @@
         </div>
 
         <div class="card-footer text-muted">
-            <button type="submit" class="btn btn-warning btn-sm">{{__('Actualizar')}}</button>
-            <button type="submit" class="btn btn-danger btn-sm">{{__('Eliminar')}}</button>
-
+         <div class="d-grid gap-2 mt-2 mb-1">
+          <a href="{{route('rutaedit', $cliente)}}" class="btn btn-primary">{{__('Actualizar')}} </a>
+        <button type="submit" class="btn btn-success btn-sm">{{__('Eliminar')}}</button>
+        </div>
         </div>
 
     </div>
