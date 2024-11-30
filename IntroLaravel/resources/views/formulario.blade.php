@@ -26,16 +26,19 @@
 
         <div class="card font-monospace">
             <div class="card-header fs-5 text-center text-primary">
-                {{ __('Registro Clientes')}}
+                {{ isset($cliente) ? __('Editar Cliente') : ('Registro Clientes')}}
             </div>
             <div class="card-body text-justify">
 
-                <form action= "{{route('rutaenvia')}}"method="POST">
+                <form method="POST" action="{{ isset($cliente) ? route('rutaupdate', $cliente->id): route('rutaenvia')}}">
                     @csrf 
+                    @if(isset($cliente))
+                        @method('PUT')
+                    @endif
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">{{__('Nombre:')}}</label>
-                        <input type="text" class="form-control" name="txtnombre" value="{{old('txtnombre')}}">
+                        <input type="text" class="form-control" name="txtnombre" value="{{old('txtnombre',$cliente->nombre ?? '')}}">
                         <small class="text-danger fst-italic"> {{ $errors->first('txtnombre') }} </small>
                     </div>
                     <div class="mb-3">

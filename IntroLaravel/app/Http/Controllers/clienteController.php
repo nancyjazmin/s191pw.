@@ -63,17 +63,30 @@ class clienteController extends Controller
      */
     public function edit(string $id)
     {
-        $consultaClientes= DB::table('cliente')->patch();
-        return view('clientes', compact('consultaClientes'));
-    
-    }
+        $cliente =DB::table('cliente')->where('id',$id)->first();
 
+        if (!$cliente) {
+            return redirect()->route('consultaclientes')->withErros(['Cliente no encontrado']);
+    }
+    return view('formulario',compact('cliente'));
+    }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(validadorCliente $request , string $id)
     {
-        //
+       DB::table('cliente')->where('id',$id)->update( [
+            "nombre"=>$request->input('txtnombre'),
+            "apellido"=>$request->input('txtapellido'),
+            "correo"=>$request->input('txtcorreo'),
+            "telefono"=>$request->input('txttelefono'),
+            "updated_at"=> now(),
+
+    ]);
+     
+     session()->flash('update','Se guardo el usuario : ');
+
+         return redirect()->route('consultaclientes');
     }
 
     /**
@@ -81,6 +94,9 @@ class clienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cliente=DB::table('cliente')->where('id',$id)->delete();
+
+        session()->flash('destroy','El Cliente se elimino correctamente.');
+        return to_route('rutaconsulta');
     }
 }

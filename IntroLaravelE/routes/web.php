@@ -5,13 +5,13 @@ use App\Http\Controllers\controladorVistas;
 use App\Http\Controllers\clienteController;
 
 /*Rutas para trabajar controlador vistas*/
-Route::get('/', [controladorVistas::class, 'home'])->name('rutaprincipal');
-Route::get('/consultas', [controladorVistas::class, 'select'])->name('rutaconsulta');
-Route::post('/enviarCliente', [controladorVistas::class, 'procesarCliente'])->name('rutaenviar');
+
+Route::get('/', [clienteController::class, 'home'])->name('rutainicio');
+
+Route::resource('cliente', clienteController::class);
 
 
 /*Rutas para trabajar con el controlador clienteController*/
-Route::get('/cliente/create',[clienteController::class,'create'])->name('rutacacas');
 /*Route::get('/', function () {
     return view('welcome');
 });

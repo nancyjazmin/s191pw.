@@ -30,8 +30,11 @@
             </div>
             <div class="card-body text-justify">
 
-                <form action= "{{route('rutaenvia')}}"method="POST">
-                    @csrf 
+                <form action= "{{route('rutaedit'.$cliente->id)}}"method="POST">
+                @csrf 
+                <input type="submit" onclick="return confirm ('¿Quieres borar?')" value="Borrar">
+                   
+                {{method_field('DELETE')}}
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">{{__('Nombre:')}}</label>

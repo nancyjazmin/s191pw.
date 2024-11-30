@@ -8,10 +8,24 @@ use App\Http\Controllers\clienteController;
 Route::get('/', [clienteController::class, 'home'])->name('rutaprincipal');
 Route::get('/cliente/create',[clienteController::class,'create'])->name('rutacacas');
 Route::post('/cliente', [clienteController::class, 'store'])->name('rutaenvia');
-
-
 Route::get('/cliente', [clienteController::class, 'index'])->name('rutaconsulta');
-Route::get('/edit', [clienteController::class, 'edit'])->name('rutaedit');
+
+Route::get('/cliente',[clienteController::class,'index'])->name('consultaclientes');
+Route::get('/cliente/{id}/edit', [clienteController::class, 'edit'])->name('rutaedit');
+// Ruta para actualizar un cliente
+Route::put('/cliente/{id}', [clienteController::class,'update'])->name('rutaupdate');
+// Ruta para eliminar un cliente
+Route::delete('/clientes/{id}', [clienteController::class,'destroy'])->name('rutadestroy');
+
+
+
+
+
+
+
+
+
+
 /*Route::get('/', function () {
     return view('welcome');
 });
